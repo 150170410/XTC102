@@ -52,10 +52,6 @@
 		<data>
 		TQlqMZMP8OtEuiWaJ1+jM/82TJQ=
 		</data>
-		<key>Mono.Security.pdb</key>
-		<data>
-		bh6FyDWreSTtezPit5LL4JG2SyM=
-		</data>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<data>
 		Sl3jNATjInMI1e65sVph2kGc0z4=
@@ -96,17 +92,9 @@
 		<data>
 		qHF9uZxGUIjKVwzds8MJxbU3UEk=
 		</data>
-		<key>System.ComponentModel.Composition.pdb</key>
-		<data>
-		IDyKSAtqgi20bz0pJRctrI1zDbc=
-		</data>
 		<key>System.Core.dll</key>
 		<data>
 		YwT14XUfcSNt4jqgzBggOBZiubo=
-		</data>
-		<key>System.Core.pdb</key>
-		<data>
-		sH8Ir9Di1t/QzQlkYR2j63cFzXA=
 		</data>
 		<key>System.Diagnostics.Debug.dll</key>
 		<data>
@@ -115,10 +103,6 @@
 		<key>System.Json.dll</key>
 		<data>
 		T6jXuoNioo1P6hK2tqxD9cP3GdM=
-		</data>
-		<key>System.Json.pdb</key>
-		<data>
-		R4KXKes1IC9kkK1WvI3y+cEbz2w=
 		</data>
 		<key>System.Linq.Expressions.dll</key>
 		<data>
@@ -160,25 +144,13 @@
 		<data>
 		kHm5I0G4qmY6HG+tQrOMkKmyug4=
 		</data>
-		<key>System.Xml.pdb</key>
-		<data>
-		mp5hUxoHffwWYBbnA8PObgA2dZ4=
-		</data>
 		<key>System.dll</key>
 		<data>
 		npNBxoWuoEfS4NUf+Uy/76ISKIU=
 		</data>
-		<key>System.pdb</key>
-		<data>
-		Ka0OOw1Ge880t6ar2rRjo4qlGeo=
-		</data>
 		<key>Tasky.Core.dll</key>
 		<data>
 		w+98vTFR0pZYybjLglG8jg/sA0k=
-		</data>
-		<key>Tasky.Core.pdb</key>
-		<data>
-		zAbD8ZwicJxJh5dcvq586DYJd6o=
 		</data>
 		<key>TaskyiOS.exe</key>
 		<data>
@@ -187,10 +159,6 @@
 		<key>TaskyiOS.exe.config</key>
 		<data>
 		WTVoTKFnsjzif7ummDQEqVtPnOo=
-		</data>
-		<key>TaskyiOS.pdb</key>
-		<data>
-		MbXSuk8zW3GYCeDDTyKpJSKFmsQ=
 		</data>
 		<key>Xamarin.iOS.dll</key>
 		<data>
@@ -254,10 +222,6 @@
 		<key>mscorlib.dll</key>
 		<data>
 		3M8xXchlQx88Q3m2SWU1V7GafVE=
-		</data>
-		<key>mscorlib.pdb</key>
-		<data>
-		wIua1ZkVHoB7aezgzDkl1XKykAY=
 		</data>
 		<key>runtime-options.plist</key>
 		<data>
@@ -387,17 +351,6 @@
 			eVChRzDwn7Bo+3NcVEipsR7pi06WeSFIOkhEm2dg7uI=
 			</data>
 		</dict>
-		<key>Mono.Security.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bh6FyDWreSTtezPit5LL4JG2SyM=
-			</data>
-			<key>hash2</key>
-			<data>
-			Dhhtp+iYEuGSsjsc90yU7gecn6n7+waFZUgLPNWCDXU=
-			</data>
-		</dict>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<dict>
 			<key>hash</key>
@@ -497,17 +450,6 @@
 			VhsfnbAR57tb1SXe2mazlNiPjgyawS7pPtGddFreMYk=
 			</data>
 		</dict>
-		<key>System.ComponentModel.Composition.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IDyKSAtqgi20bz0pJRctrI1zDbc=
-			</data>
-			<key>hash2</key>
-			<data>
-			ONDQnUmuOMOmhmN82sL/B0nolWZ+WrRZ5YB4+DGKP70=
-			</data>
-		</dict>
 		<key>System.Core.dll</key>
 		<dict>
 			<key>hash</key>
@@ -517,17 +459,6 @@
 			<key>hash2</key>
 			<data>
 			4Lqcc3F0OdxnaHgkYSrQGjRDeFyb/NtFyRekNKpdQyA=
-			</data>
-		</dict>
-		<key>System.Core.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			sH8Ir9Di1t/QzQlkYR2j63cFzXA=
-			</data>
-			<key>hash2</key>
-			<data>
-			lsmF0jkyJghhsxPvtIXOaHN5GFTy/pL+PcmXj28Tkew=
 			</data>
 		</dict>
 		<key>System.Diagnostics.Debug.dll</key>
@@ -550,17 +481,6 @@
 			<key>hash2</key>
 			<data>
 			EfVipf/5UDRl+Q0YC3VK7N8bs6UTK+iCcKhOd42ReV4=
-			</data>
-		</dict>
-		<key>System.Json.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			R4KXKes1IC9kkK1WvI3y+cEbz2w=
-			</data>
-			<key>hash2</key>
-			<data>
-			DSkfK7+fCbvuUrc1c2m2/ze2WsIpRhcH/iK461qL8ng=
 			</data>
 		</dict>
 		<key>System.Linq.Expressions.dll</key>
@@ -673,17 +593,6 @@
 			w/6IaD3UDYYpjZPHPXLfLlE4VKOLzO9dCOnpD2QpFLM=
 			</data>
 		</dict>
-		<key>System.Xml.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mp5hUxoHffwWYBbnA8PObgA2dZ4=
-			</data>
-			<key>hash2</key>
-			<data>
-			GXxYxQXq7fXi3QdP6Dv3MsVeC47DMfbANe2e9zEXvXU=
-			</data>
-		</dict>
 		<key>System.dll</key>
 		<dict>
 			<key>hash</key>
@@ -695,17 +604,6 @@
 			QpOEsH23Nmk2rk7ne6UfxlxCHmqbZcrlscktAsoU5F8=
 			</data>
 		</dict>
-		<key>System.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Ka0OOw1Ge880t6ar2rRjo4qlGeo=
-			</data>
-			<key>hash2</key>
-			<data>
-			IclVubYjUZWSFu6CjszqxYNdVXm96cDe1grx2Cm7LOk=
-			</data>
-		</dict>
 		<key>Tasky.Core.dll</key>
 		<dict>
 			<key>hash</key>
@@ -715,17 +613,6 @@
 			<key>hash2</key>
 			<data>
 			vDq72BbNe1CPmRLxSSUvWbp9diBaqX8phcQSb4evWbU=
-			</data>
-		</dict>
-		<key>Tasky.Core.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zAbD8ZwicJxJh5dcvq586DYJd6o=
-			</data>
-			<key>hash2</key>
-			<data>
-			/LEVUqlpYEjJnRDzCv2xg+8ULW/pyuA7Up+RKPnt0o4=
 			</data>
 		</dict>
 		<key>TaskyiOS.exe</key>
@@ -748,17 +635,6 @@
 			<key>hash2</key>
 			<data>
 			d1zOwyvwSXcLUchnBZ848s+uJZjzaAryP+IDcVmtN2M=
-			</data>
-		</dict>
-		<key>TaskyiOS.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MbXSuk8zW3GYCeDDTyKpJSKFmsQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			Ir9DP46/C3l0aa5oP0wIfDZUCge9outfkjtMnCgeB70=
 			</data>
 		</dict>
 		<key>Xamarin.iOS.dll</key>
@@ -897,17 +773,6 @@
 			<key>hash2</key>
 			<data>
 			XF/8XG01a09PtDKMVpieN7pVZXF5ywBSzB6aFS7jrb8=
-			</data>
-		</dict>
-		<key>mscorlib.pdb</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wIua1ZkVHoB7aezgzDkl1XKykAY=
-			</data>
-			<key>hash2</key>
-			<data>
-			3MA5DJ8l7T66RrBCIsWn5o5Q0M670ot5vYIB4OC7Elc=
 			</data>
 		</dict>
 		<key>runtime-options.plist</key>
