@@ -6,7 +6,7 @@
 	<dict>
 		<key>Calabash.dll</key>
 		<data>
-		olXZYR1BKn1LQkUrg0U50Rh1k3o=
+		veFEEeT/K3p7meLu0rbJiPOqo1o=
 		</data>
 		<key>Default-568h@2x.png</key>
 		<data>
@@ -46,19 +46,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		jSAAhC/0uk0nlpQXlaqFM0hZtFo=
+		WbQ0lQWIGgcVeEybZTab8fNZ7CE=
 		</data>
 		<key>Mono.Security.dll</key>
 		<data>
-		TQlqMZMP8OtEuiWaJ1+jM/82TJQ=
+		3KOj5g5KLJHZq9cfvfA54knv87o=
+		</data>
+		<key>Mono.Security.pdb</key>
+		<data>
+		pgZiyrdKDHuXOzgX7NZwi0u8JEs=
 		</data>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<data>
-		Sl3jNATjInMI1e65sVph2kGc0z4=
+		YtgUbzJIinFANS9QdtOXyZMraCA=
 		</data>
-		<key>MonoTouch.Dialog-1.dll.mdb</key>
+		<key>MonoTouch.Dialog-1.pdb</key>
 		<data>
-		x5M/GoKFJM7Ul4PVor6Mm4arZMc=
+		+XkTIJ+nM9ae/sXYh3/L5u1yghs=
 		</data>
 		<key>MonoTouchDebugConfiguration.txt</key>
 		<data>
@@ -70,103 +74,143 @@
 		</data>
 		<key>SQLite-net.dll</key>
 		<data>
-		mb4MLCAAa5RFbT26nNMROvJymFo=
+		sIQ527Ro/526n+ncbaf+i53ZvX0=
 		</data>
-		<key>SQLite-net.dll.mdb</key>
+		<key>SQLite-net.pdb</key>
 		<data>
-		j/roLMPtitUvbQFsxwao/QnrI+Y=
+		OZkccwa3gtl2zjWEFu0/J3lJyNc=
 		</data>
-		<key>SQLitePCL.raw.dll</key>
+		<key>SQLitePCLRaw.batteries_v2.dll</key>
 		<data>
-		ku1sgksUmO07i7y3FOUOPYLPBr8=
+		ydwqNh0NO0ilHS7Slq7VOelsBjw=
+		</data>
+		<key>SQLitePCLRaw.core.dll</key>
+		<data>
+		4OM4QYVCvjWot6U4srY98NsehVI=
+		</data>
+		<key>SQLitePCLRaw.provider.sqlite3.dll</key>
+		<data>
+		5oXoUJ9Y/Hx7pn+1I0Vog0FyNPc=
 		</data>
 		<key>Settings.bundle/Root.plist</key>
 		<data>
 		nrVMGKClE6pvxn6IcBgG4it6i0A=
 		</data>
+		<key>System.Collections.Concurrent.dll</key>
+		<data>
+		gs1Y8nqinl6bknfbXy9pqScHL1U=
+		</data>
 		<key>System.Collections.dll</key>
 		<data>
-		P9hL1d6ViTooPZ26LFVDyhQquXc=
+		3JKB5G8+2VSPt4wKPQQnT3mukkE=
 		</data>
 		<key>System.ComponentModel.Composition.dll</key>
 		<data>
-		qHF9uZxGUIjKVwzds8MJxbU3UEk=
+		gSzgEMr5NiaFfXHHS/H1oojE9C0=
+		</data>
+		<key>System.ComponentModel.Composition.pdb</key>
+		<data>
+		KzyosDnnNmHVifmYiYi+sU28le8=
 		</data>
 		<key>System.Core.dll</key>
 		<data>
-		YwT14XUfcSNt4jqgzBggOBZiubo=
+		vBYiPk7Y4a4AL+wz1iAg5UFOCbU=
+		</data>
+		<key>System.Core.pdb</key>
+		<data>
+		XQfToCQOTGFhSrhMdzQtnairp2Y=
 		</data>
 		<key>System.Diagnostics.Debug.dll</key>
 		<data>
-		CTYph7yjMaQsoiY8dftJyDr/dk8=
+		KrUmMgP7E85dTYMVrAYrH8j9pPU=
+		</data>
+		<key>System.Globalization.dll</key>
+		<data>
+		Gdq4TOoA0eWb3hlxVeSl1Xnbo4s=
 		</data>
 		<key>System.Json.dll</key>
 		<data>
-		T6jXuoNioo1P6hK2tqxD9cP3GdM=
+		HSyLbGDkKlnm9ti0lBZcSpDdb1o=
+		</data>
+		<key>System.Json.pdb</key>
+		<data>
+		we7klPK79o7uS1bky9Wqe6BLd14=
 		</data>
 		<key>System.Linq.Expressions.dll</key>
 		<data>
-		tgFGgcFBjx+NWLbkuVXhQxKwuJQ=
+		/HnGZyHqtLBA7NVeMIeX2kIGt+U=
 		</data>
 		<key>System.Linq.dll</key>
 		<data>
-		twssEjZFluqWKOAJFd7Zgu9V3xk=
+		rsgx/9lPsU/XxyoRXwDnzwDPVgE=
 		</data>
 		<key>System.Reflection.Extensions.dll</key>
 		<data>
-		W9RkgosH6+3VvVWorVUrDPiRsrc=
+		G64MdiMseo73niv8mGDGq53kUHU=
 		</data>
 		<key>System.Reflection.dll</key>
 		<data>
-		t74X9p174irOjH+cv9DC8QZ/SYI=
-		</data>
-		<key>System.Resources.ResourceManager.dll</key>
-		<data>
-		QZawDnYL4C9aJ8ZLiw7wO/+nFCw=
+		7Ue0dD+TfRSQz8jh5Gd3ANSn1mk=
 		</data>
 		<key>System.Runtime.Extensions.dll</key>
 		<data>
-		hMArudifthjw4J9v8QxkcoRC6vQ=
+		jQ8LRlxOlZL9GMnhrtGRb0nXEjM=
 		</data>
 		<key>System.Runtime.dll</key>
 		<data>
-		nrBsCknQBS5YjbQZC0HrwauHRuQ=
+		8qGt4fyFaYw9r2iZDtlTj7IzNvE=
 		</data>
 		<key>System.Threading.Tasks.dll</key>
 		<data>
-		XGzn3M2SL2MAtbJ1KCsmurrxvaE=
+		WHhNbcKeQZyMTxhZWjZDDHjBWcs=
 		</data>
 		<key>System.Threading.dll</key>
 		<data>
-		5Na6Sz1+4SfzSMLelHI+SsMUXVs=
+		KNJ9DhaqUNNkuiZLkpicT+eFwnA=
 		</data>
 		<key>System.Xml.dll</key>
 		<data>
-		kHm5I0G4qmY6HG+tQrOMkKmyug4=
+		TpAABK1JR+Bxz2x5znReo54/3+Q=
+		</data>
+		<key>System.Xml.pdb</key>
+		<data>
+		FWuBRL3b2+1WkDg8mEMib516Hso=
 		</data>
 		<key>System.dll</key>
 		<data>
-		npNBxoWuoEfS4NUf+Uy/76ISKIU=
+		rMJ3GUTBsSkab+KYhaleskNvfRU=
+		</data>
+		<key>System.pdb</key>
+		<data>
+		8QAC3oHzMWdJrURDxvLymKXZG3g=
 		</data>
 		<key>Tasky.Core.dll</key>
 		<data>
-		w+98vTFR0pZYybjLglG8jg/sA0k=
+		mkU4l1NVjQVsKbUp4hVxRK7TqO0=
+		</data>
+		<key>Tasky.Core.pdb</key>
+		<data>
+		VckD3eyqejP1v2jEW2vyLu6GGiM=
 		</data>
 		<key>TaskyiOS.exe</key>
 		<data>
-		+94deP55g7CJxark8d/wEBBFEbI=
+		+dRe5S8UuWDhMiIX5TqqyNpj768=
 		</data>
 		<key>TaskyiOS.exe.config</key>
 		<data>
-		WTVoTKFnsjzif7ummDQEqVtPnOo=
+		/nQ31pFKUaxdcLqmuK4Wg/l7Gzw=
+		</data>
+		<key>TaskyiOS.pdb</key>
+		<data>
+		Eym+E76NJLUW/XEZwXWgPUXFrjA=
 		</data>
 		<key>Xamarin.iOS.dll</key>
 		<data>
-		IWH1Y1NbLqvh6c70VB0Oy/b6Y0k=
+		bg6OQjRf2+jY+c8lf1FeeSPvxPg=
 		</data>
-		<key>Xamarin.iOS.dll.mdb</key>
+		<key>Xamarin.iOS.pdb</key>
 		<data>
-		6NZoQepw32uv+BZG0GP8eET4KPE=
+		KYXClzGoV13FEncWRpRxW+p2GDI=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -221,7 +265,11 @@
 		</dict>
 		<key>mscorlib.dll</key>
 		<data>
-		3M8xXchlQx88Q3m2SWU1V7GafVE=
+		wj7jKLIa7yr8kLSVapjIjCKoNps=
+		</data>
+		<key>mscorlib.pdb</key>
+		<data>
+		mx2Ty8wNxpWYGrf6DRColoqVQao=
 		</data>
 		<key>runtime-options.plist</key>
 		<data>
@@ -234,11 +282,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			olXZYR1BKn1LQkUrg0U50Rh1k3o=
+			veFEEeT/K3p7meLu0rbJiPOqo1o=
 			</data>
 			<key>hash2</key>
 			<data>
-			sX2qTdGaTT9hESmtq6k699SMvJ5YZwcxWz9czLqeDjg=
+			uRC1jpM0uMHbH08unqPOXpev6HaENk/fdyFI77TT/ZE=
 			</data>
 		</dict>
 		<key>Default-568h@2x.png</key>
@@ -344,33 +392,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TQlqMZMP8OtEuiWaJ1+jM/82TJQ=
+			3KOj5g5KLJHZq9cfvfA54knv87o=
 			</data>
 			<key>hash2</key>
 			<data>
-			eVChRzDwn7Bo+3NcVEipsR7pi06WeSFIOkhEm2dg7uI=
+			opykFaNvOPKWdqpc8yhLF07+GXlEA/0L++CWwCAfh9s=
+			</data>
+		</dict>
+		<key>Mono.Security.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pgZiyrdKDHuXOzgX7NZwi0u8JEs=
+			</data>
+			<key>hash2</key>
+			<data>
+			zu/Aq4EfSHElfTr74Ftm1vYn8y6ZR5OuB0mi8/10dEs=
 			</data>
 		</dict>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Sl3jNATjInMI1e65sVph2kGc0z4=
+			YtgUbzJIinFANS9QdtOXyZMraCA=
 			</data>
 			<key>hash2</key>
 			<data>
-			GPhUv5VSed+98DSfPayLrIWAetou9txG+Ayxc6MNQ7I=
+			B1xynv/uWHDJ5XKblp9FandV5oXCrCdh6jiVA0fqOF4=
 			</data>
 		</dict>
-		<key>MonoTouch.Dialog-1.dll.mdb</key>
+		<key>MonoTouch.Dialog-1.pdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			x5M/GoKFJM7Ul4PVor6Mm4arZMc=
+			+XkTIJ+nM9ae/sXYh3/L5u1yghs=
 			</data>
 			<key>hash2</key>
 			<data>
-			8r/m4Q3S++RDoJJo0YjEIrVHkFQV3lfc3BotINAVdaE=
+			hwuA7rKLZgD+YWeqTwC2PsXQHoD3AN75g6NH9wxeOdo=
 			</data>
 		</dict>
 		<key>MonoTouchDebugConfiguration.txt</key>
@@ -388,33 +447,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mb4MLCAAa5RFbT26nNMROvJymFo=
+			sIQ527Ro/526n+ncbaf+i53ZvX0=
 			</data>
 			<key>hash2</key>
 			<data>
-			+PKY9/NRVui9gmf1USyb5OFFvBTwzNVuXpZL6Or1wOs=
+			Mt8rhTN6xIE3m0SvFPq1NHLlqzSrGZ2XXnum9r06w6c=
 			</data>
 		</dict>
-		<key>SQLite-net.dll.mdb</key>
+		<key>SQLite-net.pdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j/roLMPtitUvbQFsxwao/QnrI+Y=
+			OZkccwa3gtl2zjWEFu0/J3lJyNc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mn1RX2IAzIy4Q/gxxPpM1RNK+I1GliklN/6gDAYqJuo=
+			9QmJMUEoOSiN6YkrQVXQkqEyJik//j4E+O6oryL1JY8=
 			</data>
 		</dict>
-		<key>SQLitePCL.raw.dll</key>
+		<key>SQLitePCLRaw.batteries_v2.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ku1sgksUmO07i7y3FOUOPYLPBr8=
+			ydwqNh0NO0ilHS7Slq7VOelsBjw=
 			</data>
 			<key>hash2</key>
 			<data>
-			o36wOk0YJW5d8Rx/yWSkXe5lrD/gdHIOUrUfkARt6Ps=
+			BAvWsN9YZXkb8nF+cHqdcQInRjOhw2zPT5ylJropkVI=
+			</data>
+		</dict>
+		<key>SQLitePCLRaw.core.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4OM4QYVCvjWot6U4srY98NsehVI=
+			</data>
+			<key>hash2</key>
+			<data>
+			2HIqYHUJvXluf7qRwfcDUvkvrTGEODQ7Dmlgii27EFA=
+			</data>
+		</dict>
+		<key>SQLitePCLRaw.provider.sqlite3.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5oXoUJ9Y/Hx7pn+1I0Vog0FyNPc=
+			</data>
+			<key>hash2</key>
+			<data>
+			V2/75edHGOqIRyY4LA0hd4SqNZn7EKaeJC/J/phEJrs=
 			</data>
 		</dict>
 		<key>Settings.bundle/Root.plist</key>
@@ -428,235 +509,323 @@
 			zi1Y0A+tVNNfppRDjT3LpbeC+xDRJTirIvMQJ0HkgMQ=
 			</data>
 		</dict>
+		<key>System.Collections.Concurrent.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gs1Y8nqinl6bknfbXy9pqScHL1U=
+			</data>
+			<key>hash2</key>
+			<data>
+			wAGVYlLZAmtAhz5SNy/OZRBk/LX3dfefn+nmLy1YcwY=
+			</data>
+		</dict>
 		<key>System.Collections.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			P9hL1d6ViTooPZ26LFVDyhQquXc=
+			3JKB5G8+2VSPt4wKPQQnT3mukkE=
 			</data>
 			<key>hash2</key>
 			<data>
-			jGOFEAJTHNGvyWsxICeKkZGJ9mlPNioG+WT159ldmO8=
+			4TKwQe8/g/C1IjIwqWaf5extR6SR63MItDzmvVcONI4=
 			</data>
 		</dict>
 		<key>System.ComponentModel.Composition.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qHF9uZxGUIjKVwzds8MJxbU3UEk=
+			gSzgEMr5NiaFfXHHS/H1oojE9C0=
 			</data>
 			<key>hash2</key>
 			<data>
-			VhsfnbAR57tb1SXe2mazlNiPjgyawS7pPtGddFreMYk=
+			+ex3IFESBOz0NVc1gnfKLDUzz+1oKzFIUfG4/5nT0Dc=
+			</data>
+		</dict>
+		<key>System.ComponentModel.Composition.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KzyosDnnNmHVifmYiYi+sU28le8=
+			</data>
+			<key>hash2</key>
+			<data>
+			xWYpDK0KCsaeJkv1ynea+jQf/T6BRJMbQ9bnl3Ls11s=
 			</data>
 		</dict>
 		<key>System.Core.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YwT14XUfcSNt4jqgzBggOBZiubo=
+			vBYiPk7Y4a4AL+wz1iAg5UFOCbU=
 			</data>
 			<key>hash2</key>
 			<data>
-			4Lqcc3F0OdxnaHgkYSrQGjRDeFyb/NtFyRekNKpdQyA=
+			GHAqwx9y+5t+N3lN8NrZcCpSmvxiQM5uQ3+MdoADkQA=
+			</data>
+		</dict>
+		<key>System.Core.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XQfToCQOTGFhSrhMdzQtnairp2Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			MxKJ58YJRxgJnQeXgWUfBh1VpQw0P1KpQvGEGdFrP9s=
 			</data>
 		</dict>
 		<key>System.Diagnostics.Debug.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CTYph7yjMaQsoiY8dftJyDr/dk8=
+			KrUmMgP7E85dTYMVrAYrH8j9pPU=
 			</data>
 			<key>hash2</key>
 			<data>
-			rpuupih4BpBTmWilyVSn4JzFpl74j9MssF8EadeN94k=
+			42sJZK45p8agp/K4vJCxSeDU3DmNXz7TvhXzqdKpVMg=
+			</data>
+		</dict>
+		<key>System.Globalization.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Gdq4TOoA0eWb3hlxVeSl1Xnbo4s=
+			</data>
+			<key>hash2</key>
+			<data>
+			jQ2INdUJcZD2umRku7asXw44kHkmqxiAZZ3sy32Pg9E=
 			</data>
 		</dict>
 		<key>System.Json.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T6jXuoNioo1P6hK2tqxD9cP3GdM=
+			HSyLbGDkKlnm9ti0lBZcSpDdb1o=
 			</data>
 			<key>hash2</key>
 			<data>
-			EfVipf/5UDRl+Q0YC3VK7N8bs6UTK+iCcKhOd42ReV4=
+			dQ63Uc7O5wOscTV2o9C8pY4n87z7o0QkZ7jLy6QvvKk=
+			</data>
+		</dict>
+		<key>System.Json.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			we7klPK79o7uS1bky9Wqe6BLd14=
+			</data>
+			<key>hash2</key>
+			<data>
+			YDwBgVuSiK0S6dvmW4QFiKi8LDHZ+Bm8vW2ejUjkdmA=
 			</data>
 		</dict>
 		<key>System.Linq.Expressions.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tgFGgcFBjx+NWLbkuVXhQxKwuJQ=
+			/HnGZyHqtLBA7NVeMIeX2kIGt+U=
 			</data>
 			<key>hash2</key>
 			<data>
-			mxADvTGW0hY2iayumUccoBHZdlrhU+f4jlFdc0kQPgA=
+			ccYTslYgMfCjZoeji9CncRzr8LJqc/ZHF7lFIPtQJQ4=
 			</data>
 		</dict>
 		<key>System.Linq.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			twssEjZFluqWKOAJFd7Zgu9V3xk=
+			rsgx/9lPsU/XxyoRXwDnzwDPVgE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qa0CaAUsONtz0dxU59W/smmxdTbewjvA1svlwegeXkE=
+			iRFD+AawdxLXDsZP9fFEuO9h6gFyfoyRQEZ+vloGGY0=
 			</data>
 		</dict>
 		<key>System.Reflection.Extensions.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			W9RkgosH6+3VvVWorVUrDPiRsrc=
+			G64MdiMseo73niv8mGDGq53kUHU=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZXjnv0GW0kXG5VJZDPUt1kcJXzDIJeF6G7HZ53h++a0=
+			yNL1xZLs9cKxiNdKngR6aVFjcvkEUBK2NmB2+MEhxSY=
 			</data>
 		</dict>
 		<key>System.Reflection.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t74X9p174irOjH+cv9DC8QZ/SYI=
+			7Ue0dD+TfRSQz8jh5Gd3ANSn1mk=
 			</data>
 			<key>hash2</key>
 			<data>
-			gE8YPNnZxVI1QHq1GEMg32HzTp/oOdbVxuwmMgEC5Fo=
-			</data>
-		</dict>
-		<key>System.Resources.ResourceManager.dll</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QZawDnYL4C9aJ8ZLiw7wO/+nFCw=
-			</data>
-			<key>hash2</key>
-			<data>
-			zhPfZtm9KYIv8Azmni3jUDh+Y/ut7PQ1i3vO9aF/L7s=
+			JYg3YCk2VkOMcrM+EtLCVD7LHCCAaOnbRaTRRZxPTLo=
 			</data>
 		</dict>
 		<key>System.Runtime.Extensions.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hMArudifthjw4J9v8QxkcoRC6vQ=
+			jQ8LRlxOlZL9GMnhrtGRb0nXEjM=
 			</data>
 			<key>hash2</key>
 			<data>
-			TvPqWXh/3i61ExwiKePVWCY49Rgzn4Rd+vY7Cxcsla4=
+			C2R4NYnTPTI5pzrr+rNnr+TbA9J/rkNxrcHUypO65hY=
 			</data>
 		</dict>
 		<key>System.Runtime.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nrBsCknQBS5YjbQZC0HrwauHRuQ=
+			8qGt4fyFaYw9r2iZDtlTj7IzNvE=
 			</data>
 			<key>hash2</key>
 			<data>
-			cxEUh+tfs1zowacRCSXwemhsobDGEdEszcfDQsKmpC0=
+			nK/lPT9DOPXrIOH8R8Keuz2MqhRLW2Lj+j3zGTmIpww=
 			</data>
 		</dict>
 		<key>System.Threading.Tasks.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XGzn3M2SL2MAtbJ1KCsmurrxvaE=
+			WHhNbcKeQZyMTxhZWjZDDHjBWcs=
 			</data>
 			<key>hash2</key>
 			<data>
-			TZnbDNvmM1fKbDZLPio9eXFgOoQpGPztWmDbCsrn8IQ=
+			4HAL2PKJ0tf6bTRRYWkL0kaqSPwyWNBAsshGG5IDRAM=
 			</data>
 		</dict>
 		<key>System.Threading.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5Na6Sz1+4SfzSMLelHI+SsMUXVs=
+			KNJ9DhaqUNNkuiZLkpicT+eFwnA=
 			</data>
 			<key>hash2</key>
 			<data>
-			OToLkSIjIUjLztDmKUhSRJ7HlOU/IVWymcqx+g5aQss=
+			+A2Zzz7P5Lb0MpURpU8ZY3TtPuCKxD03+c3682Nj24I=
 			</data>
 		</dict>
 		<key>System.Xml.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kHm5I0G4qmY6HG+tQrOMkKmyug4=
+			TpAABK1JR+Bxz2x5znReo54/3+Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			w/6IaD3UDYYpjZPHPXLfLlE4VKOLzO9dCOnpD2QpFLM=
+			+dYnuPpcYumwM5Mr11OgGF3ureRmtURQ0RGs66wPOBg=
+			</data>
+		</dict>
+		<key>System.Xml.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FWuBRL3b2+1WkDg8mEMib516Hso=
+			</data>
+			<key>hash2</key>
+			<data>
+			zkeM0varJqD5LSQ2N0gZobHPvKmrqz2fZq709X697vY=
 			</data>
 		</dict>
 		<key>System.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			npNBxoWuoEfS4NUf+Uy/76ISKIU=
+			rMJ3GUTBsSkab+KYhaleskNvfRU=
 			</data>
 			<key>hash2</key>
 			<data>
-			QpOEsH23Nmk2rk7ne6UfxlxCHmqbZcrlscktAsoU5F8=
+			ArlI8WVEiODOxcLRuyR0S1lmMlTttN/nhefhWU5PkJA=
+			</data>
+		</dict>
+		<key>System.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8QAC3oHzMWdJrURDxvLymKXZG3g=
+			</data>
+			<key>hash2</key>
+			<data>
+			Io2BW/y1e9Set4gq8J/ZfNjT1KV11pfG37B5lzxq2gM=
 			</data>
 		</dict>
 		<key>Tasky.Core.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			w+98vTFR0pZYybjLglG8jg/sA0k=
+			mkU4l1NVjQVsKbUp4hVxRK7TqO0=
 			</data>
 			<key>hash2</key>
 			<data>
-			vDq72BbNe1CPmRLxSSUvWbp9diBaqX8phcQSb4evWbU=
+			zZPolqlKMcvSf6cM4PotbLicweYWONXry4m+ajlmkPw=
+			</data>
+		</dict>
+		<key>Tasky.Core.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VckD3eyqejP1v2jEW2vyLu6GGiM=
+			</data>
+			<key>hash2</key>
+			<data>
+			bHHgriXd7/jGnMZB/G0br3IFBCpAqd1Tc7NXmZdWOgA=
 			</data>
 		</dict>
 		<key>TaskyiOS.exe</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+94deP55g7CJxark8d/wEBBFEbI=
+			+dRe5S8UuWDhMiIX5TqqyNpj768=
 			</data>
 			<key>hash2</key>
 			<data>
-			d0ui8YW2CXBvaFkx60db7Uaorgaf9zLLOhgyaqzMNqs=
+			C9minY1wXiJSAcKuGxGpr4SHtwAcqgOdDiYc6nako4M=
 			</data>
 		</dict>
 		<key>TaskyiOS.exe.config</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WTVoTKFnsjzif7ummDQEqVtPnOo=
+			/nQ31pFKUaxdcLqmuK4Wg/l7Gzw=
 			</data>
 			<key>hash2</key>
 			<data>
-			d1zOwyvwSXcLUchnBZ848s+uJZjzaAryP+IDcVmtN2M=
+			UYLJoC05DxIDV8DearGoSERCV/c0v2a/HweH4o0+Hr8=
+			</data>
+		</dict>
+		<key>TaskyiOS.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Eym+E76NJLUW/XEZwXWgPUXFrjA=
+			</data>
+			<key>hash2</key>
+			<data>
+			Wk5C7OTqRq4qxuGCWAuiCCJtTzRUlHbAdNah9anZiWo=
 			</data>
 		</dict>
 		<key>Xamarin.iOS.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IWH1Y1NbLqvh6c70VB0Oy/b6Y0k=
+			bg6OQjRf2+jY+c8lf1FeeSPvxPg=
 			</data>
 			<key>hash2</key>
 			<data>
-			pU+wNbnTdvx67B6dzWyH3Ioh7ur2t4aHopwcdB5I0KI=
+			Y6hqYNz6iO1MDEUiaa8K3SirHKiHAoqnB+LhWHS/VzU=
 			</data>
 		</dict>
-		<key>Xamarin.iOS.dll.mdb</key>
+		<key>Xamarin.iOS.pdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6NZoQepw32uv+BZG0GP8eET4KPE=
+			KYXClzGoV13FEncWRpRxW+p2GDI=
 			</data>
 			<key>hash2</key>
 			<data>
-			ixh78aHZ2tzcGU5uQ+AZ8X9684hw8zxl2dK01YBtdyc=
+			qRIfgmQSSl4yF7FgyUxoB0JO+iK1KAFnZdjnlm4Q+n8=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
@@ -768,11 +937,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3M8xXchlQx88Q3m2SWU1V7GafVE=
+			wj7jKLIa7yr8kLSVapjIjCKoNps=
 			</data>
 			<key>hash2</key>
 			<data>
-			XF/8XG01a09PtDKMVpieN7pVZXF5ywBSzB6aFS7jrb8=
+			ANeWgHrXAX5A08DHC4wLAgxogYwE2j598TJNh0fkXvY=
+			</data>
+		</dict>
+		<key>mscorlib.pdb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mx2Ty8wNxpWYGrf6DRColoqVQao=
+			</data>
+			<key>hash2</key>
+			<data>
+			OEAOqzHDfAhBhgaO+MNPU0M3dQjGwDZ4y7YtFmnd2wY=
 			</data>
 		</dict>
 		<key>runtime-options.plist</key>
