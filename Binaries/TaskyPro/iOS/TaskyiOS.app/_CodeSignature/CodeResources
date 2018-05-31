@@ -186,15 +186,15 @@
 		</data>
 		<key>Tasky.Core.dll</key>
 		<data>
-		mkU4l1NVjQVsKbUp4hVxRK7TqO0=
+		CwEHN9ONYQ0nBxyVr80Gyzi/OAM=
 		</data>
 		<key>Tasky.Core.pdb</key>
 		<data>
-		VckD3eyqejP1v2jEW2vyLu6GGiM=
+		IUHSGwY2uKivheNr0jqKmCYfU/A=
 		</data>
 		<key>TaskyiOS.exe</key>
 		<data>
-		+dRe5S8UuWDhMiIX5TqqyNpj768=
+		5MP48ta+D6DRoMxZ4N8dv2rISRI=
 		</data>
 		<key>TaskyiOS.exe.config</key>
 		<data>
@@ -202,7 +202,7 @@
 		</data>
 		<key>TaskyiOS.pdb</key>
 		<data>
-		Eym+E76NJLUW/XEZwXWgPUXFrjA=
+		/46ZLNTx8UwnxcmP8XqD73jl+F8=
 		</data>
 		<key>Xamarin.iOS.dll</key>
 		<data>
@@ -755,33 +755,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mkU4l1NVjQVsKbUp4hVxRK7TqO0=
+			CwEHN9ONYQ0nBxyVr80Gyzi/OAM=
 			</data>
 			<key>hash2</key>
 			<data>
-			zZPolqlKMcvSf6cM4PotbLicweYWONXry4m+ajlmkPw=
+			id5VF53BUHCakMmETelsDqSfKRsVPme3Ig2eaWIaasA=
 			</data>
 		</dict>
 		<key>Tasky.Core.pdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VckD3eyqejP1v2jEW2vyLu6GGiM=
+			IUHSGwY2uKivheNr0jqKmCYfU/A=
 			</data>
 			<key>hash2</key>
 			<data>
-			bHHgriXd7/jGnMZB/G0br3IFBCpAqd1Tc7NXmZdWOgA=
+			B36Xt6TWc/T81ywdPMWU+/sq30iAu5iffqU9z9d5HaA=
 			</data>
 		</dict>
 		<key>TaskyiOS.exe</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+dRe5S8UuWDhMiIX5TqqyNpj768=
+			5MP48ta+D6DRoMxZ4N8dv2rISRI=
 			</data>
 			<key>hash2</key>
 			<data>
-			C9minY1wXiJSAcKuGxGpr4SHtwAcqgOdDiYc6nako4M=
+			X5e3zdutbTmE8KtzcLlpWe/ZgPWUCWK4iYlR6rhFRME=
 			</data>
 		</dict>
 		<key>TaskyiOS.exe.config</key>
@@ -799,11 +799,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Eym+E76NJLUW/XEZwXWgPUXFrjA=
+			/46ZLNTx8UwnxcmP8XqD73jl+F8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Wk5C7OTqRq4qxuGCWAuiCCJtTzRUlHbAdNah9anZiWo=
+			P5A3jf3u+aX1XpEXd/Da3PECIMS7/yPCtrwDWUuN5NY=
 			</data>
 		</dict>
 		<key>Xamarin.iOS.dll</key>

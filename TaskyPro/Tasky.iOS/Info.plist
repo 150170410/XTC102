@@ -41,5 +41,7 @@
 	</dict>
 	<key>CFBundleVersion</key>
 	<string>3</string>
+	<key>CFBundleName</key>
+	<string>TaskyPro</string>
 </dict>
 </plist>
