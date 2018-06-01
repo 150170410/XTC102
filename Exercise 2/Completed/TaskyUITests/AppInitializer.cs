@@ -1,5 +1,5 @@
-﻿using Xamarin.UITest;
-using System;
+﻿using System;
+using Xamarin.UITest;
 
 namespace TaskyUITests
 {
@@ -11,7 +11,6 @@ namespace TaskyUITests
             {
                 return ConfigureApp
                     .Android
-                    // Comment this out to use the project-resources
                     .ApkFile(@"../../../../../Binaries/TaskyPro/Android/com.xamarin.samples.taskyandroid.apk")
                     .StartApp();
             }
@@ -20,7 +19,6 @@ namespace TaskyUITests
             {
                 return ConfigureApp
                     .iOS
-                    // Comment this out to use the project-resources
                     .AppBundle(@"../../../../../Binaries/TaskyPro/iOS/TaskyiOS.app")
                     .StartApp();
             }
@@ -29,4 +27,3 @@ namespace TaskyUITests
         }
     }
 }
-

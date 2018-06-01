@@ -4,8 +4,8 @@ using Xamarin.UITest;
 
 namespace TaskyUITests
 {
-    //[TestFixture (Platform.Android)]
-    [TestFixture (Platform.iOS)]
+    [TestFixture(Platform.Android)]
+    [TestFixture(Platform.iOS)]
     public class Tests
     {
         IApp app;
@@ -17,14 +17,14 @@ namespace TaskyUITests
         }
 
         [SetUp]
-        public void BeforeEachTest ()
+        public void BeforeEachTest()
         {
-            app = AppInitializer.StartApp (platform);
+            app = AppInitializer.StartApp(platform);
         }
 
-        void AddANewTask (string name, string description)
+        void AddANewTask(string name, string description)
         {
-            if (platform == Platform.iOS)
+            ifsplatform == Platform.iOS)
             {
                 app.Tap(c => c.Button("Add"));
                 app.EnterText(c => c.Class("UITextField").Index(0), name);
@@ -37,7 +37,7 @@ namespace TaskyUITests
                 app.EnterText(c => c.Class("EditText").Index(1), description);
             }
             
-            app.Tap ("Save");
+            app.Tap("Save");
         }
 
         [Test]
@@ -48,19 +48,19 @@ namespace TaskyUITests
         }
 
         [Test]
-        public void TaskyPro_CreatingATask_ShouldBeSuccessful ()
+        public void TaskyPro_CreatingATask_ShouldBeSuccessful()
         {
-            AddANewTask ("Get Milk", "Pick up some milk");
+            AddANewTask("Get Milk", "Pick up some milk");
             app.WaitForElement(c => c.Marked("Get Milk"));
         }
 
         [Test]
-        public void TaskyPro_DeletingATask_ShouldBeSuccessful ()
+        public void TaskyPro_DeletingATask_ShouldBeSuccessful()
         {
-            AddANewTask ("Test Delete", "This item should be deleted");
-            app.Tap ("Test Delete");
-            app.Tap ("Delete");
-            Assert.AreEqual (0, app.Query ("Test Delete").Length);
+            AddANewTask("Test Delete", "This item should be deleted");
+            app.Tap("Test Delete");
+            app.Tap("Delete");
+            Assert.AreEqual(0, app.Query("Test Delete").Length);
         }
     }
 }
