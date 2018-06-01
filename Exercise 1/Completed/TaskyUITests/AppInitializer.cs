@@ -11,7 +11,9 @@ namespace TaskyUITests
             {
                 return ConfigureApp
                     .Android
-                    .ApkFile(@"../../../../../Binaries/TaskyPro/Android/com.xamarin.samples.taskyandroid.apk")
+                    // TODO: Update this path to point to your Android app and uncomment the
+                    // code if the app is not included in the solution.
+                    //.ApkFile ("../../../path/to/android/Debug/yourapp.apk")
                     .StartApp();
             }
 
@@ -19,7 +21,9 @@ namespace TaskyUITests
             {
                 return ConfigureApp
                     .iOS
-                    .AppBundle(@"../../../../../Binaries/TaskyPro/iOS/TaskyiOS.app")
+                    // TODO: Update this path to point to your iOS app and uncomment the
+                    // code if the app is not included in the solution.
+                    //.AppBundle ("../../../path/to/ios/iPhoneSimulator/Debug/yourapp.app")
                     .StartApp();
             }
 
