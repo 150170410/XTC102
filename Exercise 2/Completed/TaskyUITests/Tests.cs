@@ -24,7 +24,7 @@ namespace TaskyUITests
 
         void AddANewTask(string name, string description)
         {
-            ifsplatform == Platform.iOS)
+            if (platform == Platform.iOS)
             {
                 app.Tap(c => c.Button("Add"));
                 app.EnterText(c => c.Class("UITextField").Index(0), name);
@@ -36,7 +36,7 @@ namespace TaskyUITests
                 app.EnterText(c => c.Class("EditText").Index(0), name);
                 app.EnterText(c => c.Class("EditText").Index(1), description);
             }
-            
+
             app.Tap("Save");
         }
 
