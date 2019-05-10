@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 4: Creating a cross-platform UITest #2</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Xamarin.UITest</header>
+
+    <section id="main">
+
+        <h1 id="page-title"></h1>
+        <h2>Duration</h2>
+        <p>20 minutes</p>
+        
+        <h2>Goals</h2>
+        <p>
+        The primary goal of this exercise will be to demonstrate another technique to create cross-platform UI Tests. In this approach, we will define an interface for each screen we want to test and then provide implementations for platform. The interfaces will abstract not just the queries, but the actual test mechanics. This can be very useful when the navigation and lower-level steps are different on a platform-by-platform basis.
+        </p>
+
+        <p>
+        You can continue from the prior lab exercise, or use the completed project available in <b>Exercise 3</b>.
+        </p>
+
+        <h2>Required Assets</h2>
+        The <b>Exercise 4</b> folder has a completed version of the project to compare your results against.
+
+        <h1>Steps</h1>
+        <h2>Add the shared interface and implementations</h2>
+        <p>
+            To create cross-platform UI Tests, we need to provide an abstraction for interacting with the application - so we are not relying on the control types or even the text which might change from platform-to-platform.
+        </p>
+        <ol>
+            <li>
+                Add the following interface to your project:
+            </li>
+        </ol>
+
+<pre class="codeblock prettyprint">
+public interface ITaskSystem
+{
+    ITaskSystem Add();
+    ITaskSystem Delete(string name);
+
+    ITaskSystem SetName(string name);
+    ITaskSystem SetNotes (string notes);
+    ITaskSystem Save();
+    ITaskSystem Cancel();
+
+    bool HasItem(string itemName);
+}
+</pre>
+        <ol start="2">
+            <li>
+                Examine the interface. This is the abstract definition against working on the application. This will control either the iOS or Android application. It includes all the methods necessary to add an item, delete an item and check to see if an item exists.
+            </li>
+
+            <li>
+                Notice it is defined as a <em>fluent</em> interface where each method returns itself so you can string methods together to accomplish an overall goal.
+            </li>
+
+            <li>
+                Select a platform you want to work with and let's implement each of the methods. Here's the purpose for each one:
+            </li>
+
+            <table class="grid indent-none">
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>Add</code></td>
+                    <td>Adds a new Task by clicking the "Add" button. Must be on the main screen (list of tasks).</td>
+                </tr>
+                <tr>
+                    <td><code>Delete</code></td>
+                    <td>Deletes an existing Task by name by selecting the task and then clicking the "Delete" button on the details page. Must be on the main screen (list of tasks).</td>
+                </tr>
+                <tr>
+                    <td><code>SetName</code></td>
+                    <td>Sets the name/title for a task. Must be on the details screen.</td>
+                </tr>
+                <tr>
+                    <td><code>SetNotes</code></td>
+                    <td>Sets the notes/description for a task. Must be on the details screen.</td>
+                </tr>
+                <tr>
+                    <td><code>Save</code></td>
+                    <td>Saves changes to a task by clicking the "Save" button. Must be on the details screen.</td>
+                </tr>
+                <tr>
+                    <td><code>Cancel</code></td>
+                    <td>Cancels changes to a task by clicking the "Back" button. Must be on the details screen.</td>
+                </tr>
+                <tr>
+                    <td><code>HasItem</code></td>
+                    <td>Returns <code>true</code> or <code>false</code> whether a task with the given name exists in the task list. Must be on the main screen (list of tasks). Remember that `WaitForElement` throws a `SystemException` with an inner `TimeoutException` if it fails to find the element within the specified (or default) time. You will need to catch this exception to keep from failing the test.</td>
+                </tr>
+            </table>
+
+        <li>
+            Add a new implementation file for your platform of choice and implement each of the methods. 
+            Use the existing tests you already created to add and delete a task to fill in the details for a given implementation. Here's some hints:
+            <ul class="indent-none">
+                <li>
+                    The constructor for your implementation should take an <code>IApp</code> and cache it off in an instance field.
+                </li>
+                <li>
+                    Remember to return "<code>this</code>" from each method which returns an <code>ITaskSystem</code>.
+                </li>
+                <li>
+                    For the <b>Delete</b> method, use a <code>WaitForNoElement</code> statement to wait for the specific task to be deleted.
+                </li>
+                <li>
+                    Since we are implementing the full interaction, we can use the shortcut <code>Marked</code> queries where we just pass in the identifier text to look for.
+                </li>
+                <li>
+                    For the <b>Cancel</b> method, use <code>app.Back()</code> on Android and <code>app.Tap ("Cancel")</code> on iOS.
+                </li>
+                <li>
+                    For example, to add a new task from the main screen you would use the following code:
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+<h3 class="indent-none">iOS</h3>
+<pre class="codeblock prettyprint">
+public ITaskSystem Add()
+{
+    app.Tap ("Add");
+    return this;
+}
+</pre>
+
+<h3 class="indent-none">Android</h3>
+<pre class="codeblock prettyprint">
+public ITaskSystem Add()
+{
+    app.Tap ("Add Task");
+    return this;
+}
+</pre>
+        <ol start="6">
+            <li>
+                If you need some guidance, click the two hints below to show all the code for each platform. You can even consolidate common code in a base class if you like.
+            </li>
+        </ol>
+        
+<p><a href="#" onclick="toggleBlock(this,'iosTasks', 'Show iOS Code', 'Hide iOS Code');return false;" class="uiitem">Show iOS Code</a>
+<div class="indent-none" id="iosTasks" style="display:none;">
+<pre class="prettyprint">
+using System.Linq;
+using Xamarin.UITest;
+
+namespace TaskyUITests
+{
+    public class IOSTaskSystem : ITaskSystem
+    {
+        readonly IApp app;
+
+        public IOSTaskSystem(IApp app)
+        {
+            this.app = app;
+        }
+
+        public ITaskSystem Add()
+        {
+            app.Tap ("Add");
+            return this;
+        }
+
+        public ITaskSystem Delete(string name)
+        {
+            app.Tap(name);
+            app.Tap("Delete");
+            app.WaitForNoElement(name);
+
+            return this;
+        }
+
+        public ITaskSystem SetName (string name)
+        {
+            app.EnterText (c => c.Class ("UITextField").Index (0), name);
+            return this;
+        }
+
+        public ITaskSystem SetNotes (string notes)
+        {
+            app.EnterText (c => c.Class ("UITextField").Index (1), notes);
+            return this;
+        }
+
+        public ITaskSystem Save ()
+        {
+            app.Tap ("Save");
+            return this;
+        }
+
+        public ITaskSystem Cancel ()
+        {
+            app.Tap ("Cancel");
+            return this;
+        }
+
+        public bool HasItem(string itemName)
+        {
+            try
+            {
+               app.WaitForElement(c => c.Marked(itemName));
+               return true;
+            }
+            catch (SystemException e) when (e.InnerException is TimeoutException)
+            {
+            }
+            return false;
+        }
+    }
+}
+
+</pre></div></p>
+
+<p><a href="#" onclick="toggleBlock(this,'droidTasks', 'Show Android Code', 'Hide Android Code');return false;" class="uiitem">Show Android Code</a>
+<div class="indent-none" id="droidTasks" style="display:none;">
+<pre class="prettyprint">
+using Xamarin.UITest;
+using System.Linq;
+
+namespace TaskyUITests
+{
+    public class AndroidTaskSystem : ITaskSystem
+    {
+        readonly IApp app;
+
+        public AndroidTaskSystem(IApp app)
+        {
+            this.app = app;
+        }
+
+        public ITaskSystem Add ()
+        {
+            app.Tap ("Add Task");
+            return this;
+        }
+
+        public ITaskSystem Delete(string taskName)
+        {
+            app.Tap(taskName);
+            app.Tap("Delete");
+            app.WaitForNoElement(taskName);
+
+            return this;
+        }
+
+        public ITaskSystem SetName (string name)
+        {
+            app.EnterText (c => c.Class("EditText").Index(0), name);
+            return this;
+        }
+
+        public ITaskSystem SetNotes (string notes)
+        {
+            app.EnterText (c => c.Class("EditText").Index(1), notes);
+            return this;
+        }
+
+        public ITaskSystem Save ()
+        {
+            app.Tap ("Save");
+            return this;
+        }
+
+        public ITaskSystem Cancel ()
+        {
+            app.Back ();
+            return this;
+        }
+
+        public bool HasItem(string itemName)
+        {
+            try
+            {
+               app.WaitForElement(c => c.Marked(itemName));
+               return true;
+            }
+            catch (SystemException e) when (e.InnerException is TimeoutException)
+            {
+            }
+            return false;
+
+        }
+    }
+}
+</pre></div></p>
+        
+        <h2>Create the cross-platform UITests</h2>
+        <p>
+            Next, we will replace the code in our current tests with new interface-based, flient, cross-platform tests which run for both platforms.
+        </p>
+        <ol>
+            <li>       
+                First, let's create our <code>ITaskSystem</code> implementation in the <b>AppInitializer.cs</b> code. Change the <code>StartApp</code> method to return a <code>ITaskSystem</code> implementation instead of the underlying <code>IApp</code>. Make sure to still create the <code>IApp</code>, just pass it into your implementation.
+            </li>
+        </ol>
+            
+<p><a href="#" onclick="toggleCode(this,'appInit');return false;" class="uiitem">Show Code</a>
+<div class="indent-none" id="appInit" style="display:none;">
+<pre class="prettyprint">
+public static class AppInitializer
+{
+    public static ITaskSystem StartApp(Platform platform)
+    {
+        if (platform == Platform.Android)
+        {
+            return new AndroidTaskSystem(ConfigureApp
+                .Android
+                // Comment this out to use the project-resources
+                .ApkFile(@"../../../../../Binaries/TaskyPro/Android/com.xamarin.samples.taskyandroid.apk")
+                .StartApp());
+        }
+
+        else if (platform == Platform.iOS)
+        {
+            return new IOSTaskSystem(ConfigureApp
+                .iOS
+                // Comment this out to use the project-resources
+                .AppBundle(@"../../../../../Binaries/TaskyPro/iOS/TaskyiOS.app")
+                .StartApp());
+        }
+
+        throw new Exception("AppInitializer: Unsupported platform " + platform);
+    }
+}
+</pre></div></p>
+        <ol start="2">
+
+            <li>
+                Next, open the <b>Tests.cs</b> file where your UITests are located. Update the code to cache off the new <code>ITaskSystem</code> interface instead of the <code>IApp</code>.
+            </li>
+
+            <li>
+                Remove the <code>AddANewTask</code> method you used earlier, and all the query fields.
+            </li>
+
+            <li>
+                Update your test methods to use your new abstraction - use the fluent syntax, for example:
+            </li>
+        </ol>
+
+<pre class="codeblock prettyprint">
+ITaskSystem tasks;
+...
+
+// Add a new task
+tasks
+    .Add()
+    .SetName("Get Milk")
+    .SetNotes("Get some Milk")
+    .Save();
+</pre>
+
+<p><a href="#" onclick="toggleCode(this,'newTests');return false;" class="uiitem">Show Code</a>
+<div class="indent-none" id="newTests" style="display:none;">
+<pre class="prettyprint">
+[Test]
+public void TaskyPro_CreatingATask_ShouldBeSuccessful ()
+{
+    tasks.Add ()
+        .SetName ("Get Milk")
+        .SetNotes ("Pickup Milk")
+        .Save ();
+
+    Assert.IsTrue (tasks.HasItem ("Get Milk"));
+}
+
+[Test]
+public void TaskyPro_DeletingATask_ShouldBeSuccessful ()
+{
+    tasks.Add()
+        .SetName("Test Delete")
+        .SetNotes("This item should be deleted")
+        .Save();
+
+    tasks.Delete("Test Delete");
+
+    Assert.IsFalse(tasks.HasItem("Test Delete"));
+}
+</pre></div></p>
+
+        <ol start="5">
+            <li>
+                Run the tests to make sure your UI tests still function - try it on both platforms if possible.
+            </li>
+        </ol>
+
+        <h1>Summary</h1>
+        <p>
+        Congratulations, you have successfully created cross platform UI tests using an interface-based approach.
+        </p>
+        
+        <div class="align-right">
+            <a href="../Start%20Here.html">Go Back</a>
+        </div>
+    </section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>

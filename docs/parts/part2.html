@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 2: Create acceptance tests with Xamarin.UITest</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Xamarin.UITest</header>
+
+    <section id="main">
+
+        <h1 id="page-title"></h1>
+        <h2>Duration</h2>
+        <p>20 minutes</p>
+        
+        <h2>Goals</h2>
+        <p>
+            The primary goal of this exercise is to add to run a UITest against an existing application binary.
+            You will then launch the REPL using the <code>Repl()</code> command and query the UI to build a unit test.
+        </p>
+
+        <h2>Required Assets</h2>
+        <p>
+            There is a existing set of binary applications included with the lab materials in the <strong>Binaries</strong> folder. You will find TaskyPro for both Android and iOS. You will need to choose one of these applications to test against using either the iOS Simulator or an Android emulator. In addition, the source code has also been included in the <b>TaskyPro</b> folder - this will be used for an optional exercise. Finally, there is a completed project in the <b>Exercise 2</b> folder.
+        </p>
+        <p>
+            You can continue from the previous exercise (using the Xamarin.UITest project you created), or generate a new one before starting the steps listed here.
+        </p>
+
+        <h1>Steps</h1>
+        <p>Below are the step-by-step instructions to complete the exercise.</p>
+
+        <h2>Configure the UITest to work with a pre-built application</h2>
+        <p>
+            The first step is to configure the Xamarin.UITest environment to connect to the application. 
+            We will use the fluent API exposed by the <code>ConfigureApp</code> class to connect to a pre-built application binary.
+        </p>
+        <ol>
+            <li>
+                Open <b>AppInitializer.cs</b>, this is where we need to add our configuration logic. This contains a single static method named <code>StartApp</code> which is called before each test is executed.
+            </li>
+
+            <li>
+                Complete the initialization code used to launch the application and connect it to Xamarin.UITest. 
+                To prepare for future exercises, we will add the code for <em>both</em> iOS and Android.
+
+                <ul class="indent-none">
+                    <li>
+                        For Android, use the <code>ConfigureApp.Android.ApkFile</code> method.
+                    </li>
+                    <li>
+                        For iOS, use the <code>ConfigureApp.iOS.AppBundle</code> method.
+                    </li>
+                    <li>
+                        These methods take a file path to the executable to launch. 
+                        You may need to adjust the path depending on where you have placed the lab files - verify that it correctly points at the executable you want to launch. 
+                        You can either specify a full path or a relative path from your UITest project to the binaries.
+                    </li>
+                    <li>
+                        Make sure you have the call to <code>StartApp()</code>.
+                    </li>
+                    <li>
+                        If the platform doesn't match iOS or Android, it will throw an exception. 
+                        This should never happen since TestCloud (currently) only supports iOS and Android; if future platforms are introduced, we want to fail the test on unsupported platforms.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+<p><a href="#" onclick="toggleCode(this,'appInit');return false;" class="uiitem">Show Code</a>
+<div class="indent-medium" id="appInit" style="display:none;">
+<pre class="prettyprint">
+public static class AppInitializer
+{
+    public static IApp StartApp(Platform platform)
+    {
+        if (platform == Platform.Android)
+        {
+            return ConfigureApp
+                .Android
+                .ApkFile(@"../../../../../Binaries/TaskyPro/Android/com.xamarin.samples.taskyandroid.apk")
+                .StartApp();
+        }
+
+        else if (platform == Platform.iOS)
+        {
+            return ConfigureApp
+                .iOS
+                .AppBundle(@"../../../../../Binaries/TaskyPro/iOS/TaskyiOS.app")
+                .StartApp();
+        }
+
+        throw new Exception("AppInitializer: Unsupported platform " + platform);
+    }
+}
+</pre></div></p>
+
+        <h2>Activate the REPL</h2>
+        <p>
+            Next, let's add some code to start the REPL so we can explore the UI of the application under test.
+        </p>
+        <ol>
+            <li>
+                Open the <b>Tests.cs</b> source file.
+            </li>
+
+            <li>
+                Comment out one of the <code>[TestFixture(...)]</code> attributes on the class for the platform you <em>do not</em> want to execute. Having multiple attributes causes the test(s) in the class to be run multiple times - once per attribute, passing the platform flag to our initialization method.
+            </li>
+            
+            <li>
+                Locate the single test method - it is likely named <code>AppLaunches</code>. Use the <code>IApp</code> instance field to launch the REPL - you can either comment out or replace the existing code which takes a screen shot (we will cover this API a bit later in the class).
+            </li>
+        </ol>
+
+<p><a href="#" onclick="toggleCode(this,'showREPL');return false;" class="uiitem">Show Code</a>
+<div class="indent-none" id="showREPL" style="display:none;">
+<pre class="prettyprint">
+[Test]
+public void AppLaunches()
+{
+    <span class="highlight">app.Repl();</span>
+}
+</pre></div></p> 
+
+        <ol start="4">
+
+            <li>
+                For iOS, you can just launch the test - just like you would if you were running unit tests. For Android, make sure you start an <a href="https://xamarin.com/android-player">Android emulator</a> first so that the tests have a device to connect to. Also, for now, make sure to only have one device/emulator connected - otherwise the test must specify which device to run on.
+            </li>     
+
+            <li>
+                Run the test - it should launch the application and then show the REPL.
+            </li>
+
+            <li>
+                If it does not, then check the results window. On Visual Studio for Mac, you can open the <b>Unit Test Pad</b> and right click on the failing test and use the <b>Show Results</b> option to display another window with the test results:
+            </li>
+
+            <img src="./res/images/lab2-show-results.png" />
+
+            <p>
+                For example, if an Android emulator is not running, then you will see the following error trying to run the Android tests:
+            </p>
+
+            <img src="./res/images/lab2-error-view.png" />
+
+            <li>
+                Once the REPL is running, issue the <code>tree</code> command to list the user interface controls on the application.
+            </li>
+
+            <h3 class="indent-none">iOS</h3>
+            <img src="./res/images/repl-ios.PNG" class="indent-none" />
+
+            <h3 class="indent-none">Android</h3>
+            <img src="./res/images/repl-android.PNG" class="indent-none" />
+
+            
+            <li>Enter the following statements into the REPL to add a "Get the milk" task using UITest:</li>
+
+            <h3 class="indent-none">iOS</h3>
+<pre class="prettyprint codeblock">
+app.Tap(c => c.Button("Add"));
+app.EnterText(c => c.Class("UITextField").Index(0), "Get Milk");
+app.EnterText(c => c.Class("UITextField").Index(1), "Don't forget the milk!");
+app.Tap ("Save");
+</pre>
+	<div class="hintblock">
+	If you're using a device or simulator set to a language other than English, auto-correct may change the entered text. Auto-correct can be turned off by going to Settings -> General -> Keyboard on the device. 
+	</div>
+
+
+            <h3 class="indent-none">Android</h3>
+<pre class="prettyprint codeblock">
+app.Tap("Add Task");
+app.EnterText(c => c.Class("EditText").Index(0), "Get Milk");
+app.EnterText(c => c.Class("EditText").Index(1), "Don't forget the milk!");
+app.Tap ("Save");
+</pre>
+
+            <li>
+                You should see these operations alter the user interface of the application.
+            </li>
+
+            <li>
+                Use the <code>copy</code> command to copy the REPL commands you entered to the clipboard.
+            </li>
+
+            <li>
+                Finally issue the <code>tree</code> command again to see what the UI looks like now that we have a task.
+            </li>
+        </ol>
+
+        <h2>Add a UI Test to add a task</h2>
+        <p>
+            Let's write a UI test which executes the commands you just typed into the REPL to add a task.
+        </p>
+        <ol>
+            <li>
+                Close the REPL window. This will end the tests and should stop the debugging session. Add the <code>[Ignore]</code> attribute to the <code>AppLaunches</code> method. We will be writing a real test now and don't need the REPL to launch each time, but it's handy to keep the code in the test fixture in case you ever want to run the REPL again.
+            </li>
+
+            <li>
+                Create a new method to add a new task. Name it <code>AddANewTask</code> and have it take a <code class="codeblock">string name</code> and <code class="codeblock">string description</code>.
+            </li>
+
+            <li>
+                Paste in the commands you executed for either iOS or Android and update the statements to use your passed in parameters for the name and description of the task to create.
+            </li>
+
+            <div class="hintblock">
+                Challenge: try updating the method to work on both iOS and Android by detecting the executing platform using the <code>platform</code> instance field and utilizin the code above. For help, check the code block below.
+            </div>
+        </ol>
+
+<p><a href="#" onclick="toggleCode(this,'addTask');return false;" class="uiitem">Show Code</a>
+<div class="indent-none" id="addTask" style="display:none;">
+<pre class="prettyprint">
+void AddANewTask (string name, string description)
+{
+    if (platform == Platform.iOS)
+    {
+        app.Tap(c => c.Button("Add"));
+        app.EnterText(c => c.Class("UITextField").Index(0), name);
+        app.EnterText(c => c.Class("UITextField").Index(1), description);
+    }
+    else
+    {
+        app.Tap("Add Task");
+        app.EnterText(c => c.Class("EditText").Index(0), name);
+        app.EnterText(c => c.Class("EditText").Index(1), description);
+    }
+
+    app.Tap ("Save");
+}
+</pre></div></p>             
+
+        <ol start="4">
+
+            <li>
+                Next, create a new unit test method which will use our <code>AddANewTask</code> method to add a new item into TaskyPro. 
+                <ul class="indent-none">
+                    <li>
+                        Call the <code>AddANewTaskMethod</code> to add something to TaskyPro.
+                    </li>
+                    <li>
+                        Use `app.WaitForElement(c => c.Marked("Get Milk"));` to verify that the task has been added to the UI - `WaitForElement` will wait a pre-determined time for an element to show up (30 seconds by default). If the element never shows, it throws an exception which will fail our test.
+                    </li>
+                    <li>
+                        We could also possibly use `Query` with an `Assert` and look for the UI element - however, the problem with this approach is that if the device is slower, the UI might not be visible yet and the test would arbitrarily fail even though it would pass if it ran a second later. In this sense, `WaitForElement` is a much better way to look for something on the screen.
+                    </li>
+                </ul>
+            </li>
+
+            <p>
+                Here's an example, feel free to modify this to be whatever you like:
+            </p>
+
+<pre class="prettyprint codeblock">
+[Test]
+public void TaskyPro_CreatingATask_ShouldBeSuccessful ()
+{
+    AddANewTask ("Get Milk", "Pick up some milk");
+    app.WaitForElement(c => c.Marked("Get Milk"));
+}
+</pre>
+
+            <li>
+                Run the new test - you can do this through the <b>Unit Test Pad</b> in Visual Studio for Mac, or through the <b>Unit Test</b> window in Visual Studio (if it's configured to support NUnit).
+            </li>
+
+            <li>
+                You should see the app launch in your simulator/emulator (remember to launch the Android emulator first before running the test!) and it should add your task without you touching it.
+            </li>
+
+        </ol>
+
+        <h2>(Optional) Add a Delete test</h2>
+        <p>
+            If you have some time, try adding a second test which deletes a named task in the list. To make it a valid test which does not rely on any others, you should add a new item, and then turn around and delete it and then verify that it is no longer in the list. Check the completed solution for an example of this.
+        </p>        
+
+        <h2>(Optional) Configure the UITest to work with another project in the solution</h2>
+        <div class="hintblock">
+            This part is only supported on macOS; Visual Studio on Windows currently does not support associating other projects in the solution with a UITest. If you are using Visual Studio for Mac, then go through these steps on your own to try a different approach to associating the tests with the application. 
+        </div>
+        <p>
+            Now that we've got a test, let's try connecting it to a project where we have access to the source code. The original TaskyPro source code is <a href="https://developer.xamarin.com/samples/mobile/TaskyPro/">located here</a>. For your convenience, it has been included in the <b>TaskyPro</b> folder with this lab. This version has been updated to simplify the project structure, remove the Windows project, and to use the same techniques shown in <b>XAM160</b> for managing data. We recommend you use the included source, but you can try downloading the original if you prefer; just be aware it may have changed and therefore might require some changes to work properly with your tests.
+        </p>
+        <ol>
+            <li>
+                Close your UITest project. Since we only have <em>one</em> UITest project, but <em>three</em> projects for TaskPro, it's easier to add our tests to the TaskyPro solution.
+            </li>
+
+            <li>
+                Open the <b>TaskyPro.sln</b> solution in <b>TaskyPro</b> folder.
+            </li>
+
+            <li>
+                Now, add your UITest project to this solution by right-clicking on the solution node and selecting <b>Add Existing Project</b>. Locate the <b>TaskyUITests.csproj</b> file and select it.
+            </li>
+
+            <li>
+                Expand your <b>Packages</b> folder in the UITest project, right-click and select <b>Restore</b> to make sure the configuration is properly refreshed for this solution.
+            </li>
+
+            <li>
+                Since we want to associate the other projects in this solution as our test apps, you should comment out the <code>ApkFile</code> and <code>AppBundle</code> methods from your <b>AppInitializer.cs</b> source file. The UITest system will pick up the app bundle/package from the target projects rather than having to hard code it in the test.
+            </li>
+
+            <li>
+                Open the <b>Unit Tests Pad</b> and expand the tests until you find the <b>Test Apps</b> node.
+            </li>
+
+            <li>
+                Right-click on the <b>Test Apps</b> node and select <b>Add App Project</b>. In the resulting dialog, select the iOS and Android projects.
+            </li>
+
+            <li>
+                In this case, the Xamarin Test Cloud agent has already been added to the iOS project and initialized for debug builds. If that were not the case, then the iOS application will not be available to the <b>Add App Project</b> dialog - it would not be selectable.
+            </li>
+
+            <li>
+                Run your UITests for the related projects. Make sure to use <b>Debug</b> builds, particularly for iOS since the agent isn't included in the release build.
+            </li>
+        </ol>
+
+        <h1>Summary</h1>
+        <p>
+            Congratulations, in this exercise you created and ran cross platform acceptance tests using Xamarin.UITest.
+        </p>
+        
+        <div class="align-right">
+            <a href="../Start%20Here.html">Go Back</a>
+        </div>
+    </section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>

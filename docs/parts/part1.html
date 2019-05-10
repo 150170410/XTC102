@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 1: Create a UI Test Project</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Xamarin.UITest</header>
+
+    <section id="main">
+
+      <h1 id="page-title"></h1>
+      <h2>Duration</h2>
+      <p>~5 minutes</p>
+
+      <h2>Goals</h2>
+      <p>
+      <a href="http://developer.xamarin.com/guides/testcloud/uitest/intro-to-uitest/">Xamarin.UITest</a> 
+      is an automated User Interface Testing framework that allows developers to write and execute tests to validate the functionality of the user interface of iOS and Android apps. 
+      Xamarin.UITest leverages NUnit to perform tests. 
+      </p>
+      
+      <p>
+      The goal of this exercise is to create a new Xamarin.UITest project and get it to compile. This is intended to be a group exercise done in tandem with an instructor, but you can follow the instructions here if you want to do the exercise on your own.
+      </p>
+
+      <div class="hintblock">
+      You can use either Visual Studio (Mac) or Visual Studio (Windows), however iOS UI Testing is only supported directly on the Mac in Visual Studio for Mac. You can load the projects in Visual Studio, but they cannot be executed there. If you are using Windows, then work with the Android test projects.
+      </div>
+
+      <h1>Steps</h1>
+      <h2>Create a new Xamarin.UITest project</h2>
+      <p>
+         Let's start by creating a new UITest project. This allows us to test either iOS apps, Android apps, or both.
+      </p>
+      <ol>
+
+         <li>
+            Create a new Cross-Platform Xamarin.UITest project.
+            <ul class="indent-none">
+               <li>
+                  On Visual Studio for Mac, this is under <b>Multiplatform > Tests</b>, then select the <b>UITest Project</b>.
+               </li>
+               <img src="./res/images/lab1-xs-newproj.PNG" class="indent-none" width="480" />
+               <li>
+                  In Visual Studio 2015 on Windows, this is under <b>Visual C# > Cross-Platform</b>, on Visual Studio 2017 on Windows, this is under <b>Visual C# > Multi-Platform</b>; select the <b>UITest App</b> project type.
+               </li>
+               <img src="./res/images/lab1-vs-newproj.PNG" class="indent-none" width="480" />
+            </ul>
+         </li>
+
+         <li>
+            Name the project <b>TaskyUITests</b>. 
+         </li>
+
+         <li>
+            Once created, update all nuget packages added to the project.
+         </li>
+      </ol>
+
+      <h2>Explore the created project</h2>
+      <p>
+         Next, let's look at the created files. If you expand the project, you will find two source files (this assumes you used the cross-platform version of UITest and not a platform-specific project which will only have one file).
+      </p>
+      
+      <table class="grid">
+         <tr>
+            <th>Source File</th>
+            <th>Description</th>
+         </tr>
+
+         <tr>
+            <td><b>AppInitializer.cs</b></td>
+            <td>
+               This source file defines a class, <code>AppInitializer</code> which is used to configure the UITest. It has a single static method named <code>StartApp</code> which will be called from each <code>TestFixture</code> to initialize the test before it runs. The method is passed the platform to initialize the test for (iOS or Android).
+            </td>
+         </tr>
+
+         <tr>
+            <td><b>Tests.cs</b></td>
+            <td>
+               This is the actual tests which will executed. This source file contains a single NUnit <code>TestFixture</code> with a single <code>Test</code> as well as a <code>SetUp</code> method to initialize the test (by calling the above mentioned <code>StartApp</code> method).
+            </td>
+         </tr>
+      </table>
+
+      <p>
+         When building UITests, you will duplicate the <b>Tests.cs</b> file and create test fixtures to test the various UI aspects of your application. There's no rule on how many you use - you can have one if you like, remember we are building <em>acceptance</em> tests here, not unit tests. But, you will likely find having multiple fixtures will make the testing code a bit easier to navigate.
+      </p>
+
+      <ol>
+         <li>
+            Build the project and ensure it compiles. We'll use this project in the next exercises to perform UI tests on an existing application.
+         </li>
+      </ol>
+
+
+     <h1>Summary</h1>
+     <p>
+     Congratulations, you have successfully created a Xamarin.UITest acceptance testing project - in the next exercise we will fill it in with tests to execute against an existing application.
+     </p>
+        
+     <div class="align-right">
+         <a href="../Start%20Here.html">Go Back</a>
+     </div>
+    
+    </section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>
