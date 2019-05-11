@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 3: Creating a cross-platform UITest #1</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Xamarin.UITest</header>
+
+    <section id="main">
+
+        <h1 id="page-title"></h1>
+        <h2>Duration</h2>
+        <p>10 minutes</p>
+        
+        <h2>Goals</h2>
+        <p>
+        The primary goal of this exercise will be to demonstrate a way of creating cross-platform UI Tests. We will create unique queries for  each platform to identify the UI elements we need to work with and then use these queries in our shared test code.
+        </p>
+
+        <p>
+        You can continue from the prior lab exercise if you added both iOS and Android support, or start with the completed project available in <b>Exercise 2</b> if you focused on a single platform.
+        </p>
+
+        <h2>Required Assets</h2>
+        There is a completed version of our project in the <b>Exercise 3</b> folder for you to compare your work against.
+
+        <h1>Steps</h1>
+        <h2>Identify the unique UI elements and create platform-specific queries</h2>
+        <p>
+            To create cross-platform UI Tests, we need to provide an abstraction for interacting with the unique UI elements which change from platform-to-platform. Recall how the code was different for adding a task between the iOS and Android apps:
+        </p>
+
+            <h3 class="indent-none">iOS</h3>
+<pre class="prettyprint codeblock">
+app.Tap(c => c.Button("Add"));
+app.EnterText(c => c.Class("UITextField").Index(0), "Get Milk");
+app.EnterText(c => c.Class("UITextField").Index(1), "Don't forget the milk!");
+app.Tap ("Save");
+</pre>
+
+            <h3 class="indent-none">Android</h3>
+<pre class="prettyprint codeblock">
+app.Tap("Add Task");
+app.EnterText(c => c.Class("EditText").Index(0), "Get Milk");
+app.EnterText(c => c.Class("EditText").Index(1), "Don't forget the milk!");
+app.Tap ("Save");
+</pre>        
+        <p>
+            Our goal will be to isolate these query differences by storing the queries in fields of type <code class="prettyprint">Func&lt;AppQuery,AppQuery></code> assigned to specific values based on the platform, and then writing our tests using these fields. For example, the <b>AddButton</b> query would be:
+        </p>
+
+<pre class="prettyprint codeblock">
+readonly Func&lt;AppQuery,AppQuery> AddButton;
+...
+public Tests(Platform platform)
+{
+    this.platform = platform;
+
+    if (platform == Platform.iOS)
+    {
+        AddButton = c => c.Button("Add");
+        ...
+    }
+    else if (platform == Platform.Android)
+    {
+        AddButton = c => c.Marked("Add Task");
+        ...
+    }
+</pre>        
+        <p>
+            Notice that we need to turn the short-hand string query used for Android: <code class="prettyprint">app.Tap("Add Task");</code> into the full <code>Marked</code> query syntax: <code class="prettyprint">c => c.Marked("Add Task")</code> to make it a valid query. The <code>Tap</code> method does this for you as a convenience, but when you are breaking it down to this level, we will need to be explicit.
+        </p>
+
+        <ol>
+            <li>
+                Open the <b>Tests.cs</b> file where your UI test methods are located.
+            </li>
+            <li>
+                Using the above code as an example, create class-level query fields for the following UI elements:
+                <ul class="indent-none">
+                    <li>AddButton</li>
+                    <li>NameField</li>
+                    <li>DescriptionField</li>
+                </ul>
+            </li>
+            <li>
+                Add code into your constructor to assign proper values to the fields based on the passed platform value.
+            </li>
+        </ol>
+
+<p><a href="#" onclick="toggleCode(this,'assignFields');return false;" class="uiitem">Show Code</a>
+<div class="indent-none" id="assignFields" style="display:none;">
+<pre class="prettyprint">
+public class Tests
+{
+    IApp app;
+    Platform platform;
+
+    <span class="highlight">readonly Func&lt;AppQuery,AppQuery> AddButton;</span>
+    <span class="highlight">readonly Func&lt;AppQuery,AppQuery> NameField;</span>
+    <span class="highlight">readonly Func&lt;AppQuery,AppQuery> DescriptionField;</span>
+
+    public Tests(Platform platform)
+    {
+        this.platform = platform;
+
+        <span class="highlight">if (platform == Platform.iOS)
+        {
+            AddButton = c => c.Button("Add");
+            NameField = c => c.Class("UITextField").Index(0);
+            DescriptionField = c => c.Class("UITextField").Index(1);
+        }
+        else
+        {
+            AddButton = c => c.Marked("Add Task");
+            NameField = c => c.Class("EditText").Index(0);
+            DescriptionField = c => c.Class("EditText").Index(1);
+        }</span>
+    }
+
+    ...
+}
+</pre></div></p>
+
+
+        <h2>Create the cross-platform UITests</h2>
+        <p>
+            Next, we will replace the code in the <code>AddANewTask</code> method to use these platform-specific queries so that it is platform-independent and therefore shared.
+        </p>
+        <ol>
+            <li>
+                Go through each line of code in the method and replace each query with the proper field you have created - you should be able to completely remove the <code>if/else</code> condition if you set it up to run for both platforms.
+            </li>
+            <li>
+                The actual tests are primarily just using this method and are identifying the elements using the text which is the same between the two platforms, however if we had differences here, we could abstract them away using the same technique.
+            </li>
+        </ol>
+
+<p><a href="#" onclick="toggleCode(this,'addTask');return false;" class="uiitem">Show Code</a>
+<div class="indent-none" id="addTask" style="display:none;">
+<pre class="prettyprint">
+void AddANewTask (string name, string description)
+{
+    app.Tap(AddButton);
+    app.EnterText(NameField, name);
+    app.EnterText(DescriptionField, description);
+    app.Tap ("Save");
+}
+</pre></div></p>
+
+
+        <ol start="2">
+            <li>
+                Run your tests and make sure they still execute properly.
+            </li>
+        </ol>
+
+        <h1>Summary</h1>
+        <p>
+        Congratulations, in this exercise you created a cross-platform UI Test.
+        </p>
+        
+        <div class="align-right">
+            <a href="../Start%20Here.html">Go Back</a>
+        </div>
+    </section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>

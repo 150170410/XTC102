@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 5: Deploying Xamarin.UITests to a local device</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Xamarin.UITest</header>
+
+    <section id="main">
+
+      <h1 id="page-title"></h1>
+      <h2>Duration</h2>
+      <p>10 minutes</p>
+
+      <h2>Goals</h2>
+      <p>
+      The primary goal of this exercise will be to take an existing set of UITests built against either an iOS or Android version of TaskyPro and deploy them to a local device connected to your development system.
+      </p>
+
+      <div class="hintblock">
+      You can use either Visual Studio for Mac, or Visual Studio on Windows, however remember that iOS UI testing is only supported directly on the Mac. You can load the projects in Visual Studio, but they cannot be executed there. If you are using Windows, then work with the Android test projects.
+      </div>
+
+      <h2>Required Assets</h2>
+      <p>
+        There is a testing solution we will use to run our tests in the <b>Exercise 1</b> folder named <b>TaskyPro.sln</b>. These are the same tests you worked with in <b>XTC102</b> to work with Xamarin.UITest. They've been updated slightly to add <code>WaitForElement</code> timing statements so they will run properly on devices.
+      </p>
+
+      <h1>Steps</h1>
+      <div id="ide-selector">
+          Below are the step-by-step instructions to implement the exercise.
+          <br /><br />
+          Select the IDE environment you want to work with:&nbsp;&nbsp;
+          <a href="#" data-name="xs">Visual Studio for Mac</a>,&nbsp;
+          <a href="#" data-name="vs">Visual Studio on Windows</a>, or&nbsp;
+          <a href="#" data-name="cl">Command Line</a>
+      </div>
+
+      <ide name="xs">
+
+      <h2>Turn on accessibility (iOS only)</h2>
+      <p>
+        If you are using an iOS device, first, make sure it's registered with the Apple developer portal (you must be able to deploy local apps to the device). There's a <a href="https://university.xamarin.com/lightninglectures">Lightning Lecture on Deploying to iOS devices</a> you can watch to set this up.
+      </p>
+      <p>
+        Next, open the Settings.app on the device and scroll down until you find the <b>Developer</b> settings. Tap that and make sure that the <b>Enable UI Automation</b> flag is turned on.
+      </p>
+
+      <h2>Build the solution</h2>
+      <p>
+         Let's start by opening the project.
+      </p>
+      <ol>
+         <li>
+            Open the <b>TaskyPro.sln</b> solution in the <b>Exercise 1</b> folder.
+         </li>
+
+         <li>
+            Update the Nuget packages in the entire solution by right-clicking on the solution node and selecting "Update Nuget packages".
+         </li>
+
+         <li>
+            Build the solution to make sure it all builds properly.
+         </li>
+       </ol>
+
+      <h2>Deploying to a device from Visual Studio for Mac</h2>
+      <p>
+         With Visual Studio for Mac, you will be able to deploy your UI tests directly to the device from the <b>Unit Tests</b> pad.
+      </p>
+      <ol>
+         <li>
+            Plug a physical device into the system using the USB cable - either iOS or Android.
+         </li>
+
+         <li>
+         There are two ways to select the device you want to run on:
+          <ul class="indent-none">
+            <li>
+              You can make the specific test application the active project, select the device from the build configuration in the toolbar, and then run the tests from the <b>Unit Test Pad</b>.
+            </li>
+            <li>
+              Or you can open the <b>Tests.cs</b> source file in the UITests project - at the top of the class you will find two <code>[TestFixture]</code> attributes. Comment out the one you <em>do not</em> intend to test on. You can then select the specific device from the <b>Test Apps</b> node in the <b>Unit Test Pad</b> and run the Unit test project directly from the IDE.
+            </li>
+          </ul>
+         </li>
+
+         <li>
+          Let's use the first approach - it's the most versatile. Open the <b>Unit Test Pad</b> (if it's not visible, you can use <b>View > Pads > Unit Tests</b>). Expand the UITests, they should already be associated to the two platform specific projects as shown here:
+         </li>
+
+          <img src="./res/images/lab5-unit-test-association.png" />
+
+          <ul class="indent-none">
+           <li>
+            If you do not see an association, or want to change it, then right-click the <b>Test Apps</b> node and select <b>Add App Project</b> to associate an application with the tests.
+           </li>
+         </ul>
+
+         <li>
+          Next, make the UITests project the active project (right-click and select <b>Set as Startup Project</b>).
+         </li>
+
+        <li>
+          Change your build environment to be <b>Debug</b> with a device - for example, for iOS, you need to select <b>Debug - iPhone</b>. Remember that you <em>must</em> use a <b>DEBUG</b> configuration for iOS since that's when the test agent is compiled into the app. For Android, you can just select <b>DEBUG</b>. 
+        </li>
+
+        <li>
+          Select the device you want to test on. 
+          <ul class="indent-none">
+            <li>
+            Expand the <b>Test Apps</b> node in the <b>Unit Tests Pad</b>, right click on the app you want to test (either iOS or Android) and select the physical device from the list.
+            </li>
+            <li>
+            If you don't see any devices, make sure your build configuration is set properly and that you have a device plugged in.
+            </li>
+          </ul>
+          <img src="./res/images/lab5-select-device.PNG" />
+        </li>
+
+        <li>
+          Make sure your device is <em>unlocked</em>. The tests will not run if the device is locked.
+        </li>
+
+        <li>
+          Run the project by clicking the <b>Play</b> button in the toolbar - this will execute all the tests in the project on the selected device. The app should deploy to your device, run the tests and all should pass.
+        </li>
+      </ol>
+
+      </ide>
+
+      <ide name="vs">
+
+      <h2>Build the solution</h2>
+      <p>
+         Let's start by opening the project we will be using in Visual Studio.
+      </p>
+      <ol>
+         <li>
+            Open the <b>TaskyPro.sln</b> solution in the <b>Exercise 1</b> folder.
+         </li>
+
+         <li>
+            Update the Nuget packages in the entire solution by right-clicking on the solution node and selecting "Manage Nuget packages for Solution" in Visual Studio. This will open the Nuget Manager.
+         </li>
+
+         <li>
+          If you get a bar across the top indicating the solution needs to restore packages, dismiss that and restore the existing dependencies.
+         </li>
+
+         <li>
+          Next, change the <b>Filter</b> combo box to be "Upgrade available".
+         </li>
+
+         <li>
+          If any components are listed, then go through each one and update to the latest <em>stable</em> release.
+         </li>
+
+         <li>
+            Build the solution to make sure it all builds properly.
+         </li>
+     </ol>
+
+      <h2>Deploying to a device from Visual Studio</h2>
+      <p>
+        Visual Studio supports deploying to Android devices and running UI tests, however you must have NUnit installed along with the proper extension. If you want to test iOS devices, you will need to use Visual Studio for Mac, or a Mac with a command-line approach.
+      </p>
+
+      <ol>
+          <li>
+            Make sure you have NUnit installed, and that you have an extension for Visual Studio to run NUnit-based unit tests from the IDE. You can use the free test adapter from Charlie Poole (author of NUnit):
+
+          <img src="./res/images/lab5-nunit-runner.png" />
+
+            or a paid extension such as <a href="www.jetbrains.com">ReSharper</a> which provides different testing adapters.
+          </li>
+
+          <li>
+            By default, UI Tests run on simulators/emulators. To get it to run on a device, we need to identify the device to run on. Make sure your Android device is plugged into your computer.
+          </li>
+
+          <li>
+            Use the <b>Tools > Android > Android Adb Command Prompt...</b> option in Visual Studio to open a command prompt for Android (ADB).
+          </li>
+
+          <li>
+            Type <code>adb devices</code>. This should report the unique device id of your device. If it says the device is "unauthorized", then check the device and make sure it doesn't have an authorization prompt - this sometimes happens the first time you plug in a device into a computer for USB debugging.
+          </li>
+
+          <img src="./res/images/lab5-adb-devices.png" />
+
+          <div class="hintblock">
+            If you don't see any devices, try unplugging the device and plugging it back in. If this doesn't work, you might be missing the USB driver. You can install it through the Android SDK Manager - <b>Extras > Google USB Driver</b>. Once it's installed, reboot and the device should be visible.
+          </div>
+
+          <li>
+            Copy down the unique device identifier.
+          </li>
+
+          <li>
+            Switch back to Visual Studio and open the <b>AppInitializer.cs</b> file.
+          </li>
+
+          <li>
+             Add a call to the <code>DeviceSerial("xxx")</code> method in the configuration chain, where "xxx" is the device identifier you copied down. This will identify the device to run on.
+           </li>
+
+          <li>
+            Next, install and run the application on your device by selecting the device in the toolbar and clicking the Play button. Since there is no support to identify a specific project in the solution to use as the system under test, we will just identify an installed app.
+          </li>
+
+          <img src="./res/images/lab5-play-vs-droid.png" />
+
+          <li>
+            Now that the app is installed, modify the configuration chain to use the <code>InstalledApp("com.xamarin.samples.taskydroid")</code> method to identify the application using the package id. <b>Note:</b> if you have changed the bundle id, make sure to update it here!
+         </li>
+
+         <li>
+            Rebuild the solution to make sure it's all up to date with the device information coded into the configuration. Make sure to use <b>Rebuild All</b> because not all of the projects have direct dependencies so the IDE doesn't know to compile everything. Now we are ready to run the tests.
+        </li>
+
+        <li>
+          Open the Test Explorer window through the <b>Test > Windows > Test Explorer</b> menu option.
+        </li>
+
+        <li>
+          It should list all the tests and you can click the "Run All" link to execute them. If you don't see any tests, make sure you've rebuilt the project and that you have an NUnit test adapter installed.
+        </li>
+      </ol>
+    </ide>
+
+    <ide name="cl">
+
+      <h2>Turn on accessibility (iOS only)</h2>
+      <p>
+        If you are using an iOS device, first, make sure it's registered with the Apple developer portal (you must be able to deploy local apps to the device). There's a <a href="https://university.xamarin.com/lightninglectures/setting-up-an-ios-Device-For-Deployment">Lightning Lecture on Deploying to iOS devices</a> you can watch to set this up.
+      </p>
+      <p>
+        Next, open the Settings.app on the device and scroll down until you find the <b>Developer</b> settings. Tap that and make sure that the <b>Enable UI Automation</b> flag is turned on.
+      </p>    
+
+    <h2>Build the solution</h2>
+      <p>
+         Let's start by opening the project we will be using in your IDE.
+      </p>
+      <ol>
+         <li>
+            Open the <b>TaskyPro.sln</b> solution in the <b>Exercise 1</b> folder.
+         </li>
+
+         <li>
+            Update the Nuget packages in the entire solution by right-clicking on the solution node and selecting "Update Nuget packages" in Visual Studio for Mac, or "Manage Nuget Packages for Solution" in Visual Studio - check the specific IDE instructions by switching to each one if you need help with this task.
+         </li>
+
+         <li>
+            Build the solution to make sure it all builds properly.
+         </li>
+       </ol>    
+
+      <h2>Deploying to a device from the command line</h2>
+      <p>
+        Another way we can run on local devices is through the command line. You can use the command line approach on either macOS or Windows.
+      </p>
+
+      <ol>
+          <li>
+            Make sure your device is plugged into your computer.
+          </li>
+          <li>
+            Open a command line or terminal prompt. Our first step is to identify the device we want to run on.
+            <ul class="indent-none">
+              <li>
+                For iOS (Mac only): <code>xcrun instruments -s devices</code>.
+              </li>
+              <li>
+                For Android: <code>adb devices</code>.
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            Copy down the unique device identifier from the output.
+          </li>
+
+          <li>
+            Switch to your IDE - it should still have <b>TaskyPro</b> loaded.
+          </li>
+
+         <li>
+          Open the <b>AppInitializer.cs</b> file and add in the appropriate method call to the configuration chain to identify the device to run on:
+            <ul class="indent-none">
+              <li>Android: <code>DeviceSerial("xxxx")</code></li>
+              <li>iOS: <code>DeviceIdentifier("xxxx")</code></li>
+            </ul>
+         </li>
+
+         <li>
+          Next, change the destination target in the IDE's toolbar to be the physical device and run the application once to get it installed onto the device. Then, modify the configuration change to use the <code>InstalledApp("....")</code> method to identify the application using either the package id, or the bundle id:
+            <ul class="indent-none">
+              <li>Android: <code>com.xamarin.samples.taskydroid</code></li>
+              <li>iOS: <code>com.xamarin.taskypro</code></li>
+            </ul>
+         </li>
+
+         <li>
+          Rebuild the solution to make sure it's all current (make sure to use <b>Rebuild All</b> because not all of the projects have direct dependencies so the IDE doesn't know to compile everything). With the device information coded into the configuration, you can then run the unit test from Visual Studio, or from the command line. Since the command line is a new approach, let's try that.
+        </li>
+
+        <li>
+          If you do not have NUnit installed, download it from <a href="http://www.nunit.org/">www.nunit.org</a> for your platform.
+        </li>
+
+        <li>
+          Make sure your device is unlocked.
+        </li>
+
+         <li>
+          Switch to your command line prompt, and use <b>nunit-console.exe</b> application to run your unit tests - the easiest way to do this is to make sure NUnit is in your path (or fully specify the path) and then pass it the DLL with the UITests as the single parameter. You will need to use <code>Mono</code> to run it on macOS, on Windows, you can execute it directly.
+         </li>
+     </ol>
+
+<pre style="font: consolas;background-color:black;color:white;">
+$ mono ~/NUnit-2.6.4/bin/nunit-console.exe TaskyUITests.dll
+Using default runtime: v4.0.30319
+NUnit-Console version 2.6.4.14350
+Copyright (C) 2002-2012 Charlie Poole.
+Copyright (C) 2002-2004 James W. Newkirk, Michael C. Two, Alexei A. Vorontsov.
+Copyright (C) 2000-2002 Philip Craig.
+All Rights Reserved.
+
+Android test running Xamarin.UITest version: 0.7.2
+Running activated version with api key from /Users/mark/xtc-api-key
+Initializing Android app on device 05845172 with installed app: com.xamarin.samples.taskydroid
+Skipping local screenshots. Can be enabled with EnableScreenshots() when configuring app.
+Skipping app data clear for installed app.
+Signing apk with Xamarin keystore.
+Skipping installation: Already installed.
+Using element matching Marked("Add Task").
+Tapping coordinates [ 1095, 106 ].
+Using element matching Class("EditText").Index(0).
+Tapping coordinates [ 600, 250 ].
+Using element matching Class("EditText").Index(1).
+...
+</pre>
+    </ide>
+
+     <h1>Summary</h1>
+     <p>
+     Congratulations, you have successfully run your UI tests on a locally connected device.
+     </p>
+        
+     <div class="align-right">
+         <a href="../Start%20Here.html">Go Back</a>
+     </div>
+    
+    </section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>
